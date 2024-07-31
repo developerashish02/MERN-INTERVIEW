@@ -124,8 +124,9 @@ const c ;
 
 # Promises in javascript
 
-promises in used to handle asynchronous operation in javascript
-promises are nothing but assumed it to be empty object
+- promises object is the placeholder for a surten period of the till give the output from the async operation
+- promises in used to handle asynchronous operation in javascript
+- promises are nothing but assumed it to be empty object
 
 ```javascript
 {
@@ -203,5 +204,30 @@ promise
   .catch((error) => {
     // Log any errors that occurred during the fetch to the console
     console.error("Fetch error:", error);
+  });
+```
+
+**Promise chain**
+
+```javascript
+const cart = ["shoes", "shirts", "t-shirt"];
+
+createOrder(cart, function () {
+  proceedToPayment(orderInfo, function () {
+    orderSummery(paymentInfo, function () {
+      updateTheWallet();
+    });
+  }); // payment info
+}); // orderInfo
+
+createOrder(cart)
+  .then((order) => {
+    return proceedToPayment(order);
+  })
+  .then((paymentId) => {
+    return orderSummery(paymentId);
+  })
+  .then(() => {
+    updateTheWallet();
   });
 ```
