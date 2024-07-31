@@ -19,7 +19,6 @@ var x = 100;
 function greet() {
   console.log("Hello JavaScript");
 }
-javascript;
 ```
 
 # The let and const variable is hoisted
@@ -39,14 +38,13 @@ console.log(b);
 
 let a = 100;
 var b = 200;
-
-javascript;
 ```
 
 # what is the difference bet let var and const
 
 let var and const three ways we can declare the variables
 var existed in javascript sins javascript is created let and const variables introduced into the ES6 version of the JavaScript
+
 **score**
 score means where we can access a specific variable or a function in are code
 
@@ -55,8 +53,6 @@ score means where we can access a specific variable or a function in are code
 ```javascript
 var a = 100;
 console.log(a);
-
-javascript;
 ```
 
 2. let and const are the block scope
@@ -68,8 +64,6 @@ javascript;
 }
 
 console.log(a);
-
-javascript;
 ```
 
 we can not access the a outside of the block scope
@@ -88,14 +82,35 @@ function test() {
 }
 
 test();
-
-javascript;
 ```
 
 - we can shadow the var variable with let but not the opposite
   that called the unlegale shadowing
 
-  2.hoisting
-  refer above question
+**hoisting**
+refer above question
 
-  3.initialization
+**Declaration**
+
+1. using the var we can re-declare the variable
+2. but using the let and const we can not re-declare the var
+
+```javascript
+var a = 100;
+var a = 200;
+
+let b = 200;
+let b = 200;
+```
+
+**Declaration without initialization**
+
+we can declaration var and let variable but not the const variable const
+need the declaration and initialization with same time
+
+```javascript
+var a ;
+let b ;
+
+const c ;
+```
