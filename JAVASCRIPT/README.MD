@@ -7,6 +7,13 @@ JavaScript is a synchronous single-threaded language, meaning code executes one 
 1. **Inversion of Control**: The control of code execution is handed over to another function.
 2. **Callback Hell**: Multiple nested callbacks make code difficult to read and maintain.
 
+```javascript
+const cart = ["shoes", "shirt", "pants", "watch"];
+createOrder(cart, function () {
+  proceedToPayment(orderId); // paymentId
+}); // orderId
+```
+
 ## What is Hoisting?
 
 Hoisting is a phenomenon in JavaScript where you can access variables and functions even before they are initialized.
@@ -113,4 +120,88 @@ var a ;
 let b ;
 
 const c ;
+```
+
+# Promises in javascript
+
+promises in used to handle asynchronous operation in javascript
+promises are nothing but assumed it to be empty object
+
+```javascript
+{
+  data: undefined;
+}
+```
+
+after the 5s or 6s how much time it takes that promises object fill with the data
+
+```javascript
+{
+  data: orderDetails;
+}
+```
+
+after that we attach the callback function to the promise object
+
+```javascript
+const cart = ["shoes", "shirt", "pants", "watch"];
+
+const promise = createOrder(cart);
+
+promise.then(() => {
+  proceedToPayment();
+  console.log("Proceed to payment");
+});
+```
+
+**Example of Promise**
+
+```javascript
+// Create a new promise
+const myPromise = new Promise((resolve, reject) => {
+  // Simulate an asynchronous operation using setTimeout
+  setTimeout(() => {
+    const success = true; // Change this to false to see the reject case
+
+    if (success) {
+      resolve("The operation was successful!"); // Resolve the promise with a success message
+    } else {
+      reject("The operation failed."); // Reject the promise with an error message
+    }
+  }, 2000); // Delay of 2 seconds
+});
+
+// Consume the promise using then() and catch()
+myPromise
+  .then((message) => {
+    console.log(message); // Output: "The operation was successful!" after 2 seconds
+  })
+  .catch((error) => {
+    console.error(error); // Output: "The operation failed." if the promise is rejected
+  });
+```
+
+```javascript
+// URL of the API endpoint
+const apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
+
+// Use fetch to make a GET request to the API
+const promise = fetch(apiUrl);
+promise
+  .then((response) => {
+    // Check if the response is OK (status code 200-299)
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    // Parse the JSON from the response
+    return response.json();
+  })
+  .then((data) => {
+    // Log the data from the response to the console
+    console.log("Data fetched:", data);
+  })
+  .catch((error) => {
+    // Log any errors that occurred during the fetch to the console
+    console.error("Fetch error:", error);
+  });
 ```

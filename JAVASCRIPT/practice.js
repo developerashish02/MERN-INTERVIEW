@@ -1,10 +1,19 @@
-function test() {
-  let a = "Hello ";
+const promise = new Promise((resolved, reject) => {
+  setTimeout(() => {
+    const success = true;
 
-  if (true) {
-    let a = "Hi";
-    console.log(a);
-  }
+    if (success) {
+      resolved("Promise is resolved");
+    } else {
+      reject("Promise is rejected");
+    }
+  }, 2000);
+});
 
-  console.log(a);
-}
+promise.then((message) => {
+  console.log(message);
+});
+
+promise.catch((error) => {
+  console.log(error);
+});
