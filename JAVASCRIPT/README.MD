@@ -231,3 +231,22 @@ createOrder(cart)
     updateTheWallet();
   });
 ```
+
+# what is the closures
+
+each and every function have to access of the outer lexical environment mean access of variables and functions of its outer parent
+
+```javascript
+function outer() {
+  var x = 200;
+  function inner() {
+    console.log(x);
+  }
+
+  inner();
+}
+
+outer();
+```
+
+# What is the event bubbling and capturing in javascript
