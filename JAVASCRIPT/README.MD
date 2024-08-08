@@ -239,14 +239,30 @@ each and every function have to access of the outer lexical environment mean acc
 ```javascript
 function outer() {
   var x = 200;
-  function inner() {
-    console.log(x);
+  function greet() {
+    console.log("Hello Word");
   }
 
-  inner();
+  function inner() {
+    console.log(x);
+    greet();
+  }
+  return inner;
 }
 
-outer();
+outer()();
 ```
 
 # What is the event bubbling and capturing in javascript
+
+# what is the difference into the local storage and session storage
+
+local storage and session storage are the ways to store the data into the web browser
+
+**sessions storage**
+
+"Data that is persisted for a session means it is saved while the user is on the website or app. When the user closes the tab or browser, the session ends and the data is no longer available."
+
+**local storage**
+
+"Data in local storage is kept until we manually clear it."

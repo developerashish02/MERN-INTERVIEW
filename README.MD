@@ -38,3 +38,8 @@ engine
 3. data harvey sides and SEO friendly
 
 note - client side rendering for the apps and server side rendering data haley sides
+
+**Life Cycle Methods in React**
+
+# Class Based Component
+
